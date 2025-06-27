@@ -5,8 +5,8 @@ function loadImageAndGetScale(imgUrl: string, aspectRatio: number, callback: (sc
   imageObj.onload = () => {
     const canvasWidth = 1024;
     const canvasHeight = 1024 / aspectRatio;
-    const scaleW = 0.5 * canvasWidth / imageObj.naturalWidth;
-    const scaleH = 0.5 * canvasHeight / imageObj.naturalHeight;
+    const scaleW = 0.8 * canvasWidth / imageObj.naturalWidth;
+    const scaleH = 0.8 * canvasHeight / imageObj.naturalHeight;
     const scale = Math.min(scaleW, scaleH);
     callback(scale, canvasWidth, canvasHeight);
   };

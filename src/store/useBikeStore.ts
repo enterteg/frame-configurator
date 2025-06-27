@@ -126,6 +126,9 @@ const createDefaultLogoImage = (logoType: string, aspectRatio: number, name: str
   const canvasWidth = TEXTURE_SIZE;
   const canvasHeight = TEXTURE_SIZE / aspectRatio;
   
+  // Set scale to make image take 80% of canvas height
+  const scale = 0.8;
+  
   return {
     id: `default_${logoType.toLowerCase()}_logo`,
     name: name,
@@ -133,8 +136,8 @@ const createDefaultLogoImage = (logoType: string, aspectRatio: number, name: str
     color: getColorById('9005') || { code: 'RAL 9005', name: 'Jet black', hex: '#0A0A0A' },
     x: canvasWidth / 2, // Center horizontally
     y: canvasHeight / 2, // Center vertically
-    scaleX: 1,
-    scaleY: 1,
+    scaleX: scale,
+    scaleY: scale,
     rotation: 0,
     zIndex: 0
   };
