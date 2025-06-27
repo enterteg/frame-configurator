@@ -42,11 +42,15 @@ export default function BikeCustomizer() {
 
 
 const InitializeAllLogoTextures = () => {
-  const { initializeAllLogoTextures } = useBikeStore();
+  const { initializeAllLogoTextures, updateDefaultLogoScales } = useBikeStore();
 
   useEffect(() => {
+    // First update the default logo scales based on actual image dimensions
+    updateDefaultLogoScales();
+    
+    // Then initialize all logo textures
     initializeAllLogoTextures();
-  }, [initializeAllLogoTextures]);
+  }, [initializeAllLogoTextures, updateDefaultLogoScales]);
 
   return null;
 }

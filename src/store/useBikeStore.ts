@@ -111,6 +111,7 @@ interface BikeState {
   // New actions
   setLogoTextureFromState: (logoType: LogoType) => Promise<void>;
   initializeAllLogoTextures: () => Promise<void>;
+  updateDefaultLogoScales: () => void;
 
   // Configuration actions
   saveConfiguration: () => string;
@@ -664,6 +665,47 @@ export const useBikeStore = create<BikeState>()(
           console.error("Failed to load configuration:", error);
           throw new Error("Invalid configuration format");
         }
+      },
+
+      updateDefaultLogoScales: () => {
+        const state = get();
+        
+        // Helper function similar to loadImageAndGetScale from useLogoImageActions
+        const loadImageAndGetScale = (imgUrl: string, aspectRatio: number, logoType: LogoType, imageId: string) => {
+          const imageObj = new window.Image();
+          imageObj.onload = () => {
+            const canvasWidth = TEXTURE_SIZE;
+            const canvasHeight = TEXTURE_SIZE / aspectRatio;
+            const scaleW = 0.8 * canvasWidth / imageObj.naturalWidth;
+            const scaleH = 0.8 * canvasHeight / imageObj.naturalHeight;
+            const scale = Math.min(scaleW, scaleH);
+            
+            // Update the image with the calculated scale
+            set((state) => ({
+              logoTypes: {
+                ...state.logoTypes,
+                [logoType]: {
+                  ...state.logoTypes[logoType],
+                  images: state.logoTypes[logoType].images.map((img) =>
+                    img.id === imageId ? { ...img, scaleX: scale, scaleY: scale } : img
+                  ),
+                },
+              },
+            }));
+          };
+          imageObj.src = imgUrl;
+        };
+
+        // Update scale for all default logo images
+        const logoTypes = Object.keys(state.logoTypes) as LogoType[];
+        logoTypes.forEach((logoType) => {
+          const aspectRatio = state.logoTypes[logoType].aspectRatio;
+          state.logoTypes[logoType].images.forEach((image) => {
+            if (image.url && image.id.includes('default_')) {
+              loadImageAndGetScale(image.url, aspectRatio, logoType, image.id);
+            }
+          });
+        });
       },
 
       // New action
