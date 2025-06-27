@@ -18,7 +18,6 @@ interface LogosSectionProps {
   removeLogoImage: (logoType: LogoType, imageId: string) => void;
   setLogoTextureFromState: (logoType: LogoType) => void;
   updateLogoTypeImages: (logoType: LogoType, images: LogoImage[]) => void;
-  openColorSelection: (section: 'frame' | 'fork' | 'logo') => void;
 }
 
 const logoTypes_CONFIG = [
@@ -40,15 +39,14 @@ const LogosSection: React.FC<LogosSectionProps> = ({
   removeLogoImage,
   setLogoTextureFromState,
   updateLogoTypeImages,
-  openColorSelection
 }) => {
   const { setSelectionPanelType } = useBikeStore();
 
   const handleImageSelect = (logoType: LogoType, imageId: string) => {
     setSelectedLogoType(logoType);
     setSelectedLogoImageId(imageId);
+    setActiveTab('logos');
   };
-
 
   const handleImageDelete = (logoType: LogoType, imageId: string) => {
     removeLogoImage(logoType, imageId);
@@ -57,12 +55,6 @@ const LogosSection: React.FC<LogosSectionProps> = ({
       setSelectedLogoImageId(null);
     }
     setLogoTextureFromState(logoType);
-  };
-
-  const handleImageColorChange = (logoType: LogoType, imageId: string) => {
-    setSelectedLogoType(logoType);
-    setSelectedLogoImageId(imageId);
-    openColorSelection('logo');
   };
 
   const handleLogoTypeClick = (logoType: LogoType) => {
@@ -162,23 +154,8 @@ const LogosSection: React.FC<LogosSectionProps> = ({
                           <div className="text-xs font-medium text-gray-800 truncate">
                             {image.name}
                           </div>
-                          <div className="text-xs font-medium text-gray-800 truncate">
-                            {image.color.code}
-                          </div>
                         </div>
                         <div className="flex items-center gap-1">
-                          <button
-                            onClick={(e) => {
-                              e.stopPropagation();
-                              handleImageColorChange(logoType.id, image.id);
-                            }}
-                            className="p-1 rounded hover:bg-gray-100 transition-colors"
-                          >
-                            <div
-                              className="w-6 h-6 rounded-full cursor-pointer border border-gray-300"
-                              style={{ backgroundColor: image.color.hex }}
-                            />
-                          </button>
                           {logoTypes[logoType.id].images.length > 1 && (
                             <>
                               {logoTypes[logoType.id].images.findIndex(

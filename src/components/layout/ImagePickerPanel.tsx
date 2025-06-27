@@ -5,28 +5,109 @@ import { PlusIcon } from '@heroicons/react/24/outline';
 import { useLogoImageActions } from '../../hooks/useLogoImageActions';
 
 const logoImagesList = [
-  '100percent.png',
-  'handmade_poland.png',
-  'mud_stones.png',
-  'loca_triangle.png',
-  'loca_sharp_empty.png',
-  'loca_sharp.png',
-  'loca_empty.png',
-  'loca_bikes_empty_italic.png',
-  'loca_bikes_italic.png',
-  'loca_spacious_vert.png',
-  'loca_spacious.png',
-  'loca_bikes_horizontal.png',
-  'loca_half.png',
-  'CA.png',
-  'loca_vertical.png',
-  'lo_jing_yang.png',
-  'triangle.png',
-  'handmade.png',
-  'loca_circles.png',
-  'loca_bikes_text_front.png',
-  'loca_bikes_front.png',
-  'loca_solid.png',
+  // SWM logos
+  'SWM - Pozytyw - Right-Top.png',
+  'SWM - Pozytyw - Right-Bottom.png',
+  'SWM - Pozytyw - Left-Top.png',
+  'SWM - Pozytyw - Left-Bottom.png',
+  'SWM - Negatyw - Right-Top.png',
+  'SWM - Negatyw - Right-Bottom.png',
+  'SWM - Negatyw - Left-Top.png',
+  'SWM - Negatyw - Left-Bottom.png',
+  'SWM - Kontur - Right-Top.png',
+  'SWM - Kontur - Right-Bottom.png',
+  'SWM - Kontur - Left-Top.png',
+  'SWM - Kontur - Left-Bottom.png',
+  
+  // Software Mansion - Pozytyw (XS)
+  'Software Mansion - Pozytyw - XS - Right-Top.png',
+  'Software Mansion - Pozytyw - XS - Right-Bottom.png',
+  'Software Mansion - Pozytyw - XS - Left-Top.png',
+  'Software Mansion - Pozytyw - XS - Left-Bottom.png',
+  
+  // Software Mansion - Pozytyw (S)
+  'Software Mansion - Pozytyw - S - Right-Top.png',
+  'Software Mansion - Pozytyw - S - Right-Bottom.png',
+  'Software Mansion - Pozytyw - S - Left-Top.png',
+  'Software Mansion - Pozytyw - S - Left-Bottom.png',
+  
+  // Software Mansion - Pozytyw (M)
+  'Software Mansion - Pozytyw - M - Right-Top.png',
+  'Software Mansion - Pozytyw - M - Right-Bottom.png',
+  'Software Mansion - Pozytyw - M - Left-Top.png',
+  'Software Mansion - Pozytyw - M - Left-Bottom.png',
+  
+  // Software Mansion - Pozytyw (L)
+  'Software Mansion - Pozytyw - L - Right-Top.png',
+  'Software Mansion - Pozytyw - L - Right-Bottom.png',
+  'Software Mansion - Pozytyw - L - Left-Top.png',
+  'Software Mansion - Pozytyw - L - Left-Bottom.png',
+  
+  // Software Mansion - Pozytyw (XL)
+  'Software Mansion - Pozytyw - XL - Right-Top.png',
+  'Software Mansion - Pozytyw - XL - Right-Bottom.png',
+  'Software Mansion - Pozytyw - XL - Left-Top.png',
+  'Software Mansion - Pozytyw - XL - Left-Bottom.png',
+  
+  // Software Mansion - Negatyw (XS)
+  'Software Mansion - Negatyw - XS - Right-Top.png',
+  'Software Mansion - Negatyw - XS - Right-Bottom.png',
+  'Software Mansion - Negatyw - XS - Left-Top.png',
+  'Software Mansion - Negatyw - XS - Left-Bottom.png',
+  
+  // Software Mansion - Negatyw (S)
+  'Software Mansion - Negatyw - S - Right-Top.png',
+  'Software Mansion - Negatyw - S - Right-Bottom.png',
+  'Software Mansion - Negatyw - S - Left-Top.png',
+  'Software Mansion - Negatyw - S - Left-Bottom.png',
+  
+  // Software Mansion - Negatyw (M)
+  'Software Mansion - Negatyw - M - Right-Top.png',
+  'Software Mansion - Negatyw - M - Right-Bottom.png',
+  'Software Mansion - Negatyw - M - Left-Top.png',
+  'Software Mansion - Negatyw - M - Left-Bottom.png',
+  
+  // Software Mansion - Negatyw (L)
+  'Software Mansion - Negatyw - L - Right-Top.png',
+  'Software Mansion - Negatyw - L - Right-Bottom.png',
+  'Software Mansion - Negatyw - L - Left-Top.png',
+  'Software Mansion - Negatyw - L - Left-Bottom.png',
+  
+  // Software Mansion - Negatyw (XL)
+  'Software Mansion - Negatyw - XL - Right-Top.png',
+  'Software Mansion - Negatyw - XL - Right-Bottom.png',
+  'Software Mansion - Negatyw - XL - Left-Top.png',
+  'Software Mansion - Negatyw - XL - Left-Bottom.png',
+  
+  // Software Mansion - Kontur (XS)
+  'Software Mansion - Kontur - XS - Right-Top.png',
+  'Software Mansion - Kontur - XS - Right-Bottom.png',
+  'Software Mansion - Kontur - XS - Left-Top.png',
+  'Software Mansion - Kontur - XS - Left-Bottom.png',
+  
+  // Software Mansion - Kontur (S)
+  'Software Mansion - Kontur - S - Right-Top.png',
+  'Software Mansion - Kontur - S - Right-Bottom.png',
+  'Software Mansion - Kontur - S - Left-Top.png',
+  'Software Mansion - Kontur - S - Left-Bottom.png',
+  
+  // Software Mansion - Kontur (M)
+  'Software Mansion - Kontur - M - Right-Top.png',
+  'Software Mansion - Kontur - M - Right-Bottom.png',
+  'Software Mansion - Kontur - M - Left-Top.png',
+  'Software Mansion - Kontur - M - Left-Bottom.png',
+  
+  // Software Mansion - Kontur (L)
+  'Software Mansion - Kontur - L - Right-Top.png',
+  'Software Mansion - Kontur - L - Right-Bottom.png',
+  'Software Mansion - Kontur - L - Left-Top.png',
+  'Software Mansion - Kontur - L - Left-Bottom.png',
+  
+  // Software Mansion - Kontur (XL)
+  'Software Mansion - Kontur - XL - Right-Top.png',
+  'Software Mansion - Kontur - XL - Right-Bottom.png',
+  'Software Mansion - Kontur - XL - Left-Top.png',
+  'Software Mansion - Kontur - XL - Left-Bottom.png',
 ];
 
 export default function ImagePickerPanel() {

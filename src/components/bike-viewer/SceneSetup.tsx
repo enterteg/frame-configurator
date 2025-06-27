@@ -34,7 +34,7 @@ export default function SceneSetup({ children }: SceneSetupProps) {
         castShadow
       />
 
-    <ambientLight intensity={0.5} color="white" />
+      <ambientLight intensity={0.5} color="white" />
 
       {/* Display plate under the bike with height and metal-with-leaks-bl textures */}
       <Plate />
@@ -45,8 +45,8 @@ export default function SceneSetup({ children }: SceneSetupProps) {
         enablePan={true}
         enableZoom={true}
         enableRotate={true}
-        minDistance={1}
-        maxDistance={4}
+        minDistance={0.5}
+        maxDistance={3}
         minPolarAngle={Math.PI / 4}
         maxPolarAngle={Math.PI / 2}
         minAzimuthAngle={-Infinity}
