@@ -116,7 +116,6 @@ const LeftNavigation = () => {
           removeLogoImage={removeLogoImage}
           setLogoTextureFromState={setLogoTextureFromState}
           updateLogoTypeImages={updateLogoTypeImages}
-          openColorSelection={openColorSelection}
         />
       </div>
     </div>

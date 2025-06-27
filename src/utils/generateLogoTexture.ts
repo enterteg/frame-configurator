@@ -12,37 +12,9 @@ function loadImage(url: string): Promise<HTMLImageElement> {
 }
 
 export async function processImageWithTransformations(image: LogoImage): Promise<HTMLImageElement> {
-  // Load the source image
+  // Load the source image and return it without any color transformations
   const sourceImage = await loadImage(image.url || image.blobUrl || '');
-  
-  // Create a canvas to apply transformations
-  const canvas = document.createElement('canvas');
-  const ctx = canvas.getContext('2d')!;
-  
-  canvas.width = sourceImage.width;
-  canvas.height = sourceImage.height;
-  
-  // Clear canvas
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-  // Draw the image first
-  ctx.drawImage(sourceImage, 0, 0);
-  
-  // Apply color tint
-  ctx.globalCompositeOperation = 'source-in';
-  ctx.fillStyle = image.color.hex;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  
-  // Reset composite operation
-  ctx.globalCompositeOperation = 'source-over';
-  
-  // Create a new image from the processed canvas
-  const processedImage = new window.Image();
-  processedImage.src = canvas.toDataURL('image/png', 1.0); // Use maximum quality
-  
-  return new Promise((resolve) => {
-    processedImage.onload = () => resolve(processedImage);
-  });
+  return sourceImage;
 }
 
 export async function generateLogoTexture({
